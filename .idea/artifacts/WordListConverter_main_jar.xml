@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WordListConverter.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WordListConverter_main_jar</output-path>
+    <root id="archive" name="wlc.jar">
+      <element id="module-output" name="WordListConverter.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.ajalt.mordant/mordant-jvm/2.1.0/3e6043f582e172c6010539233813b4c22f22a7dc/mordant-jvm.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.0/8ee15ef0c67dc83d874f412d84378d7f0eb50b63/kotlin-stdlib-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.9.0/e000bd084353d84c9e888f6fb341dc1f5b79d948/kotlin-stdlib-jdk8-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.ajalt.clikt/clikt-jvm/4.2.0/657a9636285560a8e11e68298dee7b3ec6f3ad6f/clikt-jvm.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.9.0/f320478990d05e0cfaadd74f9619fd6027adbf37/kotlin-stdlib-jdk7-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/markdown-jvm/0.4.1/7fe358b916f6162fe3ac13c8d8fc96a2c27f3a21/markdown-jvm-0.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.9.0/cd65c21cfd1eec4d44ef09f9f52b6d9f8a720636/kotlin-stdlib-common-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.ajalt.colormath/colormath-jvm/3.3.1/8475ca9382172e02871460463283721071306165/colormath-jvm.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.9.0/2891f552979d4bf4d4ec516acb9df769fb62dbe9/kotlin-reflect-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.13.0/1200e7ebeedbe0d10062093f32925a912020e747/jna-5.13.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

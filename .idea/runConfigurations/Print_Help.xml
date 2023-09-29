@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Print Help" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="MainKt" />
+    <module name="WordListConverter.main" />
+    <option name="PROGRAM_PARAMETERS" value="--help" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
