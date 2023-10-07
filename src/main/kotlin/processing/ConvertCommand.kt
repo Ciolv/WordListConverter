@@ -13,6 +13,7 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.inputStream
 import com.github.ajalt.clikt.parameters.types.outputStream
 import extractors.BabbelExtractor
+import extractors.DashExtractor
 import extractors.IWordPairExtractor
 import extractors.QuestionAnswerExtractor
 import formatters.QuestionAnswerFormatter
@@ -26,7 +27,8 @@ const val commandDescription = """
 
 enum class SourceFormat {
     BABBEL,
-    QUESTION_ANSWER
+    QUESTION_ANSWER,
+    DASH
 }
 
 class ConvertCommand : CliktCommand(name = "wlc", help = commandDescription.trimIndent(), printHelpOnEmptyArgs = true) {
@@ -47,10 +49,14 @@ class ConvertCommand : CliktCommand(name = "wlc", help = commandDescription.trim
             .help("Set the Babbel data format as input format. [Default]")
             .flag()
             .convert { SourceFormat.BABBEL },
+        option("--dash")
+            .help("Set a dash separated list (<lang> - <other lang>) as input format.")
+            .flag()
+            .convert { SourceFormat.DASH },
         option("--qna")
             .help("Set the Question and Answer data format as input format. Can be used to de-duplicate an existing file.")
             .flag()
-            .convert { SourceFormat.QUESTION_ANSWER },
+            .convert { SourceFormat.QUESTION_ANSWER }
     ).single().default(SourceFormat.BABBEL)
 
     override fun run() {
@@ -80,6 +86,7 @@ class ConvertCommand : CliktCommand(name = "wlc", help = commandDescription.trim
         return when (format) {
             SourceFormat.BABBEL -> BabbelExtractor()
             SourceFormat.QUESTION_ANSWER -> QuestionAnswerExtractor()
+            SourceFormat.DASH -> DashExtractor()
         }
     }
 
