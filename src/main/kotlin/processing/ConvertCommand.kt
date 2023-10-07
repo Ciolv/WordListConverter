@@ -13,16 +13,21 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.inputStream
 import com.github.ajalt.clikt.parameters.types.outputStream
 import extractors.BabbelExtractor
+import extractors.IWordPairExtractor
 import extractors.QuestionAnswerExtractor
 import formatters.QuestionAnswerFormatter
 import models.WordPair
 import java.io.InputStream
 import java.io.OutputStream
-import kotlin.reflect.full.createInstance
 
 const val commandDescription = """
     This program is used to extract word pairs from a source, format those pairs and write the formatted pairs to a destination.
 """
+
+enum class SourceFormat {
+    BABBEL,
+    QUESTION_ANSWER
+}
 
 class ConvertCommand : CliktCommand(name = "wlc", help = commandDescription.trimIndent(), printHelpOnEmptyArgs = true) {
     val verbose by option("-v", "--verbose")
@@ -37,22 +42,20 @@ class ConvertCommand : CliktCommand(name = "wlc", help = commandDescription.trim
         .help("Destination filename to write formatted data to. Use - for stdout. File will be overwritten by default.")
         .outputStream(truncateExisting = true)
 
-    val extractor by mutuallyExclusiveOptions(
+    val sourceFormat by mutuallyExclusiveOptions(
         option("--babbel")
             .help("Set the Babbel data format as input format. [Default]")
             .flag()
-            .convert { BabbelExtractor::class },
+            .convert { SourceFormat.BABBEL },
         option("--qna")
             .help("Set the Question and Answer data format as input format. Can be used to de-duplicate an existing file.")
             .flag()
-            .convert { QuestionAnswerExtractor::class },
-    ).single().default(BabbelExtractor::class)
-
+            .convert { SourceFormat.QUESTION_ANSWER },
+    ).single().default(SourceFormat.BABBEL)
 
     override fun run() {
         val inputText = getInputText(source)
-        // extractor should be an object already, as I do not see a reason for it not to be a singleton object atm.
-        val extractorInstance = extractor.objectInstance ?: extractor.createInstance()
+        val extractorInstance = getExtractor(sourceFormat)
         val languagePairs = extractorInstance.extract(inputText)
 
         println("Found ${languagePairs.size} pairs.")
@@ -68,6 +71,16 @@ class ConvertCommand : CliktCommand(name = "wlc", help = commandDescription.trim
 
         val formattedText = QuestionAnswerFormatter.format(languagePairs)
         writeOutput(destination, formattedText)
+    }
+
+    /**
+     * Creates an instance of the respective [IWordPairExtractor] class.
+     */
+    private fun getExtractor(format: SourceFormat): IWordPairExtractor {
+        return when (format) {
+            SourceFormat.BABBEL -> BabbelExtractor()
+            SourceFormat.QUESTION_ANSWER -> QuestionAnswerExtractor()
+        }
     }
 
     /**

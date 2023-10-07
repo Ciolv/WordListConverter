@@ -3,9 +3,9 @@ package extractors
 import models.WordPair
 
 /**
- * A [WordPairExtractor] for content copied from the [babbel.com](https://babbel.com) repetition menu.
+ * A [IWordPairExtractor] for content copied from the [babbel.com](https://babbel.com) repetition menu.
  */
-object BabbelExtractor : WordPairExtractor {
+class BabbelExtractor : IWordPairExtractor {
 
     /**
      * Extracts a list of [WordPair] items from the provided [text].

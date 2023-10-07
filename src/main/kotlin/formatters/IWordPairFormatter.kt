@@ -2,6 +2,6 @@ package formatters
 
 import models.WordPair
 
-interface WordPairFormatter {
+interface IWordPairFormatter {
     fun format(pairs: List<WordPair>): String
 }

@@ -3,9 +3,9 @@ package formatters
 import models.WordPair
 
 /**
- * A [WordPairFormatter] to generate content that can be imported by the [ForgetMeNot](https://github.com/tema6120/ForgetMeNot) app.
+ * A [IWordPairFormatter] to generate content that can be imported by the [ForgetMeNot](https://github.com/tema6120/ForgetMeNot) app.
  */
-object QuestionAnswerFormatter : WordPairFormatter {
+object QuestionAnswerFormatter : IWordPairFormatter {
     /**
      * Generates a _Q_ and _A_ text for the given [pairs]
      *

@@ -23,7 +23,7 @@ class BabbelExtractorTest {
             WordPair("Hallo!", "Hei!"),
             WordPair("Wie heißt sie?", "Hva heter hun?")
         )
-        val extractedList = BabbelExtractor.extract(sampleData)
+        val extractedList = BabbelExtractor().extract(sampleData)
 
         assertContentEquals(expectedList, extractedList)
     }

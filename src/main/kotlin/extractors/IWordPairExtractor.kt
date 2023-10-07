@@ -2,7 +2,7 @@ package extractors
 
 import models.WordPair
 
-interface WordPairExtractor {
+interface IWordPairExtractor {
     /**
      * Extracts a list of [WordPair] items from the provided [text].
      */

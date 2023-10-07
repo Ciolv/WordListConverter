@@ -3,9 +3,9 @@ package extractors
 import models.WordPair
 
 /**
- * A [WordPairExtractor] for content exported from the [ForgetMeNot](https://github.com/tema6120/ForgetMeNot) app.
+ * A [IWordPairExtractor] for content exported from the [ForgetMeNot](https://github.com/tema6120/ForgetMeNot) app.
  */
-object QuestionAnswerExtractor : WordPairExtractor {
+class QuestionAnswerExtractor : IWordPairExtractor {
     /**
      * Extracts a list of [WordPair] items from the provided [text].
      *
